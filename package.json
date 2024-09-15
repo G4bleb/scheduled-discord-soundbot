@@ -1,0 +1,35 @@
+{
+  "name": "sound-playing-discord-bot",
+  "version": "1.0.0",
+  "description": "work in progress, please don't try using this for now",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsup src/index.ts --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/G4bleb/sound-playing-discord-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "sound"
+  ],
+  "author": "Gableb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/G4bleb/sound-playing-discord-bot/issues"
+  },
+  "homepage": "https://github.com/G4bleb/sound-playing-discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^14.16.2",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "tsup": "^8.2.4",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}
