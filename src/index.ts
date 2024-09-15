@@ -1,18 +1,15 @@
 import { Client } from "discord.js";
 import { config } from "./config";
 import { commands } from "./commands";
-import { deployCommands } from "./deploy-commands";
+import { deployGlobalCommands } from "./deploy-commands";
 
 const client = new Client({
   intents: ["Guilds", "GuildMessages", "DirectMessages"],
 });
 
-client.once("ready", () => {
+client.once("ready", async () => {
   console.log("Discord bot is ready! 🤖");
-});
-
-client.on("guildCreate", async (guild) => {
-  await deployCommands({ guildId: guild.id });
+  await deployGlobalCommands();
 });
 
 client.on("interactionCreate", async (interaction) => {
