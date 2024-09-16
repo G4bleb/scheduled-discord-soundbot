@@ -21,6 +21,13 @@ TODO:
   - Runtime
   - Save new config.json
 - Configure and save channel selection
-- Live upload of sounds, with possible crontab edition (should be doable with a slash command SlashCommandBuilder.addAttachmentOption)
+- Live upload of sounds with crontab, with later editing of crontab (should be doable with a slash command SlashCommandBuilder.addAttachmentOption)
+  - Also deleting a sound
+- slash command to get local time / timezone so users can shift crontabs if needed
 - Suggested: If sound triggered but no one heard it, wait until someone comes in
 - Rename this repo to something more meaningful (discord-scheduled-soundbot?)
+- per-guild sounds, schedules ?
+
+Unsupported:
+
+- playing two sounds at the same schedule
