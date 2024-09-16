@@ -10,6 +10,7 @@ export function findFirstTalkableChannel(guild: Guild) {
 
   const channels = guild.channels.cache
     .filter((channel) => channel.type === ChannelType.GuildVoice)
+    .sort((first, second) => first.position - second.position)
     .filter((channel) => {
       const permissions = channel.permissionsFor(guild.members.me!);
 

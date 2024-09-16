@@ -15,6 +15,7 @@ Parts of code copied from https://github.com/markokajzer/discord-soundbot -- gre
 
 
 TODO:
- - Add a slash command to configure config.json (schedule, channel (!))
+ - Add a slash command to configure config.json (schedule)
    - Runtime
    - Save new config.json
+ - Configure and save channel selection
