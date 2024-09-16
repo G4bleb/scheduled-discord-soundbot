@@ -7,6 +7,14 @@
     {
       "name": "vendredi.mp3",
       "schedule": "00 00 * * 5"
+    },
+    {
+      "name": "prochainvendredi.mp3",
+      "schedule": "00 00 * * 6"
+    },
+    {
+      "name": "wednesday.ogg",
+      "schedule": "00 00 * * 3"
     }
   ]
 }
