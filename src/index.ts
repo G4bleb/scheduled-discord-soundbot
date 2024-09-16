@@ -1,4 +1,4 @@
-import { Client, Events, GatewayIntentBits, Guild } from "discord.js";
+import { ActivityType, Client, Events, GatewayIntentBits } from "discord.js";
 
 import { env } from "./env";
 import { gracefulShutdown, Job, scheduleJob } from "node-schedule";
@@ -19,6 +19,10 @@ export const client = new Client({
 export const jobs: Job[] = [];
 
 client.once(Events.ClientReady, async () => {
+  client.user!.setActivity({
+    type: ActivityType.Watching,
+    name: "l'heure",
+  });
   await setupGuilds();
   console.log("Discord bot is ready! 🤖");
 });
