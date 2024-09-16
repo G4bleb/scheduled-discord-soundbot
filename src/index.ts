@@ -1,10 +1,17 @@
-import { Client } from "discord.js";
+import { Client, GatewayIntentBits } from "discord.js";
+
 import { config } from "./config";
 import { commands } from "./commands";
-import { deployGlobalCommands } from "./deploy-commands";
+import { deployGuildCommands } from "./deploy-commands";
 
-const client = new Client({
-  intents: ["Guilds", "GuildMessages", "DirectMessages"],
+export const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildVoiceStates,
+  ],
 });
 
 client.once("ready", async () => {
@@ -17,8 +24,9 @@ client.on("interactionCreate", async (interaction) => {
     return;
   }
   const { commandName } = interaction;
-  if (commands[commandName as keyof typeof commands]) {
-    commands[commandName as keyof typeof commands].execute(interaction);
+  const typedCommandName = commandName as keyof typeof commands;
+  if (commands[typedCommandName]) {
+    commands[typedCommandName].execute(interaction);
   }
 });
 
