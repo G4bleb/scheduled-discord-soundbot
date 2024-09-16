@@ -6,15 +6,10 @@ const commandsData = Object.values(commands).map((command) => command.data);
 
 const rest = new REST({ version: "10" }).setToken(config.DISCORD_TOKEN);
 
-type DeployGuildCommandsProps = {
-  guildId: string;
-};
-
-export async function deployGuildCommands({
-  guildId,
-}: DeployGuildCommandsProps) {
+// This is instant
+export async function deployGuildCommands(guildId: string) {
   try {
-    console.log("Started refreshing application (/) commands.");
+    console.log("Started deploying guild (/) commands.");
 
     await rest.put(
       Routes.applicationGuildCommands(config.DISCORD_CLIENT_ID, guildId),
@@ -23,21 +18,22 @@ export async function deployGuildCommands({
       }
     );
 
-    console.log("Successfully reloaded application (/) commands.");
+    console.log("Successfully deployed guild (/) commands.");
   } catch (error) {
     console.error(error);
   }
 }
 
+// Careful: this can take some time
 export async function deployGlobalCommands() {
   try {
-    console.log("Started refreshing application (/) commands.");
+    console.log("Started deploying application (/) commands.");
 
     await rest.put(Routes.applicationCommands(config.DISCORD_CLIENT_ID), {
       body: commandsData,
     });
 
-    console.log("Successfully reloaded application (/) commands.");
+    console.log("Successfully deployed application (/) commands.");
   } catch (error) {
     console.error(error);
   }
