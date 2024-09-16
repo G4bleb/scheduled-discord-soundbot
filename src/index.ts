@@ -16,7 +16,7 @@ export const client = new Client({
 
 client.once("ready", async () => {
   console.log("Discord bot is ready! 🤖");
-  await deployGlobalCommands();
+  await deployGuildCommands("<guildid>");
 });
 
 client.on("interactionCreate", async (interaction) => {
