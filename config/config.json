@@ -1,0 +1,12 @@
+{
+  "sounds": [
+    {
+      "name": "lheure.opus",
+      "schedule": "00 23 * * *"
+    },
+    {
+      "name": "vendredi.mp3",
+      "schedule": "00 00 * * 5"
+    }
+  ]
+}
