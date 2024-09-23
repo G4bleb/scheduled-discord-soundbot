@@ -17,5 +17,6 @@
       "name": "wednesday.ogg",
       "schedule": "00 00 * * 3"
     }
-  ]
+  ],
+  "timezone": "Europe/Paris"
 }

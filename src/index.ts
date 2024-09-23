@@ -1,22 +1,13 @@
 import { ActivityType, Client, Events, GatewayIntentBits } from "discord.js";
 
 import { env } from "./env";
-import { gracefulShutdown, Job, scheduleJob } from "node-schedule";
-import { ConfigInterface } from "./ConfigInterface";
-import { playSound } from "./sound-system";
-import { join as pathJoin } from "node:path";
+import { config } from "./config";
 import { findFirstTalkableChannel } from "./utils";
-
-export const config = require(pathJoin(
-  process.cwd(),
-  "config",
-  "config.json"
-)) as ConfigInterface;
+import { cancelSchedule, scheduleSound } from "./scheduling";
 
 export const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates],
 });
-export const jobs: Job[] = [];
 
 client.once(Events.ClientReady, async () => {
   client.user!.setActivity({
@@ -38,18 +29,14 @@ client.on(Events.GuildDelete, async (guild) => {
 });
 
 async function setupGuilds() {
-  await gracefulShutdown(); //Cancel all jobs
+  await cancelSchedule();
   for (const [_, guild] of client.guilds.cache) {
     console.log(`setting up for guild ${guild.id}, "${guild.name}"`);
     const channel = findFirstTalkableChannel(guild)!;
     console.log(`  channel "${channel.name}"`);
 
     for (const sound of config.sounds) {
-      jobs.push(
-        scheduleJob(guild.id + ":" + sound.name, sound.schedule, () => {
-          playSound(guild, channel.id, pathJoin("sounds", sound.name));
-        })
-      );
+      scheduleSound(guild, channel, sound);
     }
   }
 }
