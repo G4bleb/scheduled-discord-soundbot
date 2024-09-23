@@ -18,7 +18,7 @@ Parts of code copied from https://github.com/markokajzer/discord-soundbot -- gre
 TODO:
 
 - Set config (schedule) at runtime
-    - Should save new config.json
+  - Should save new config.json
 - Per-guild sounds, schedules
 - Slash command to set channel selection for guild
 - Slash command to set timezone for guild ()
@@ -27,6 +27,7 @@ TODO:
 - Slash command to with configure crontab of sound
 - Suggested: If sound triggered but no one heard it, wait until someone comes in
 - Rename this repo to something more meaningful (discord-scheduled-soundbot?)
+- Localization
 
 Unsupported:
 
