@@ -27,7 +27,7 @@ export async function deployGuildCommands(guildId: string) {
 // This is instant
 export async function clearGuildCommands(guildId: string) {
   try {
-    console.log("Started cleaning guild (/) commands.");
+    console.log("Started clearing guild (/) commands.");
 
     await rest.put(
       Routes.applicationGuildCommands(env.DISCORD_CLIENT_ID, guildId),
@@ -52,6 +52,21 @@ export async function deployGlobalCommands() {
     });
 
     console.log("Successfully deployed application (/) commands.");
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Careful: this can take some time
+export async function clearGlobalCommands() {
+  try {
+    console.log("Started clearing application (/) commands.");
+
+    await rest.put(Routes.applicationCommands(env.DISCORD_CLIENT_ID), {
+      body: [],
+    });
+
+    console.log("Successfully cleaned application (/) commands.");
   } catch (error) {
     console.error(error);
   }
