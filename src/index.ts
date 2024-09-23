@@ -21,7 +21,7 @@ export const jobs: Job[] = [];
 client.once(Events.ClientReady, async () => {
   client.user!.setActivity({
     type: ActivityType.Watching,
-    name: "l'heure",
+    name: config.activityName,
   });
   await setupGuilds();
   console.log("Discord bot is ready! 🤖");
