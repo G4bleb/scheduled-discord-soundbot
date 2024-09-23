@@ -17,17 +17,17 @@ Parts of code copied from https://github.com/markokajzer/discord-soundbot -- gre
 
 TODO:
 
-- Add a slash command to configure config.json (schedule)
-  - Runtime
-  - Save new config.json
-- Configure and save channel selection
-- Live upload of sounds with crontab, with later editing of crontab (should be doable with a slash command SlashCommandBuilder.addAttachmentOption)
-  - Also deleting a sound
-- slash command to get local time / timezone so users can shift crontabs if needed
+- Set config (schedule) at runtime
+    - Should save new config.json
+- Per-guild sounds, schedules
+- Slash command to set channel selection for guild
+- Slash command to set timezone for guild ()
+- Slash command to of sounds and set crontab (should be doable with a slash command SlashCommandBuilder.addAttachmentOption)
+  - Also deleting a sound (keep sound name separate from sound filename so it's easier for users)
+- Slash command to with configure crontab of sound
 - Suggested: If sound triggered but no one heard it, wait until someone comes in
 - Rename this repo to something more meaningful (discord-scheduled-soundbot?)
-- per-guild sounds, schedules ?
 
 Unsupported:
 
-- playing two sounds at the same schedule
+- playing two sounds at the same schedule in the same guild
