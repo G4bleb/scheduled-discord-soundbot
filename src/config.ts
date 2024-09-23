@@ -7,8 +7,9 @@ export interface SoundConfig {
 
 export interface ConfigFile {
   activityName: string;
-  sounds: { name: string; schedule: string }[];
+  sounds: SoundConfig[];
   timezone: string;
+  locale: string;
 }
 
 export const config = require(pathJoin(

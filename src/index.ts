@@ -4,6 +4,8 @@ import { env } from "./env";
 import { config } from "./config";
 import { findFirstTalkableChannel } from "./utils";
 import { cancelSchedule, scheduleSound } from "./scheduling";
+import { deployGlobalCommands } from "./deploy-commands";
+import { commands } from "./commands";
 
 export const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates],
@@ -14,6 +16,7 @@ client.once(Events.ClientReady, async () => {
     type: ActivityType.Watching,
     name: config.activityName,
   });
+  await deployGlobalCommands();
   await setupGuilds();
   console.log("Discord bot is ready! 🤖");
 });
@@ -40,5 +43,16 @@ async function setupGuilds() {
     }
   }
 }
+
+client.on("interactionCreate", async (interaction) => {
+  if (!interaction.isCommand()) {
+    return;
+  }
+  const { commandName } = interaction;
+  const typedCommandName = commandName as keyof typeof commands;
+  if (commands[typedCommandName]) {
+    commands[typedCommandName].execute(interaction);
+  }
+});
 
 client.login(env.DISCORD_TOKEN);

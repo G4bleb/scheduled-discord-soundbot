@@ -28,6 +28,7 @@ TODO:
 - Suggested: If sound triggered but no one heard it, wait until someone comes in
 - Rename this repo to something more meaningful (discord-scheduled-soundbot?)
 - Localization
+- Like discord-soundbot's soundutils, save only sounds names and find them in soudns folder when needed
 
 Unsupported:
 

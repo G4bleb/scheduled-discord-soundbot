@@ -1,5 +1,5 @@
 {
-  "activityName":"l'heure",
+  "activityName": "l'heure",
   "sounds": [
     {
       "name": "lheure.opus",
@@ -18,5 +18,6 @@
       "schedule": "00 00 * * 3"
     }
   ],
-  "timezone": "Europe/Paris"
+  "timezone": "Europe/Paris",
+  "locale": "fr-FR"
 }
