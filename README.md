@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-Parts of code copied from https://github.com/markokajzer/discord-soundbot -- great bot, use it instead of this crappy one
+Parts of code copied from https://github.com/markokajzer/discord-soundbot -- great bot, check it out (it's probably the one you are looking for)
 
 TODO:
 
