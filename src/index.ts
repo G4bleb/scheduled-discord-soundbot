@@ -31,7 +31,7 @@ client.on(Events.GuildDelete, async (guild) => {
   await setupGuilds();
 });
 
-async function setupGuilds() {
+export async function setupGuilds() {
   await cancelSchedule();
   for (const [_, guild] of client.guilds.cache) {
     console.log(`setting up for guild ${guild.id}, "${guild.name}"`);
@@ -45,7 +45,7 @@ async function setupGuilds() {
 }
 
 client.on("interactionCreate", async (interaction) => {
-  if (!interaction.isCommand()) {
+  if (!interaction.isChatInputCommand()) {
     return;
   }
   const { commandName } = interaction;

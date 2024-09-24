@@ -1,4 +1,4 @@
-import { CommandInteraction, SlashCommandBuilder } from "discord.js";
+import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
 import { getNextPlay } from "../scheduling";
 import { config } from "../config";
 
@@ -6,7 +6,7 @@ export const data = new SlashCommandBuilder()
   .setName("sounds")
   .setDescription("Lists the scheduled sounds");
 
-export async function execute(interaction: CommandInteraction) {
+export async function execute(interaction: ChatInputCommandInteraction) {
   if (!interaction.guildId) {
     console.error("missing guildId in sounds command");
     return;
@@ -22,7 +22,7 @@ function soundsMessage(guildId: string): string {
     messageLines.push(
       `\tNext play: ${getNextPlay(guildId, name).toLocaleString(config.locale, {
         timeZone: config.timezone,
-      })}\n`
+      })} (${config.timezone})\n`
     );
   }
   return "```\n" + messageLines.join("\n") + "\n```";

@@ -1,11 +1,12 @@
 import { join as pathJoin } from "node:path";
+import { setupGuilds } from ".";
 
 export interface SoundConfig {
   name: string;
   schedule: string;
 }
 
-export interface ConfigFile {
+export interface Config {
   activityName: string;
   sounds: SoundConfig[];
   timezone: string;
@@ -16,4 +17,9 @@ export const config = require(pathJoin(
   process.cwd(),
   "config",
   "config.json"
-)) as ConfigFile;
+)) as Config;
+
+export function setTimezone(newTimezone: string){
+  config.timezone = newTimezone;
+  setupGuilds();
+}
