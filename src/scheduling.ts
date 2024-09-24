@@ -1,8 +1,8 @@
-import { join as pathJoin } from "node:path";
 import { gracefulShutdown, scheduledJobs, scheduleJob } from "node-schedule";
 import { playSound } from "./sound-system";
 import { Channel, Guild } from "discord.js";
 import { config, SoundConfig } from "./config";
+import { getSoundPath } from "./utils/sounds-utils";
 
 export function scheduleSound(
   guild: Guild,
@@ -16,7 +16,7 @@ export function scheduleSound(
       tz: config.timezone,
     },
     () => {
-      playSound(guild, channel.id, pathJoin("sounds", sound.name));
+      playSound(guild, channel.id, getSoundPath(sound.name));
     }
   );
 }

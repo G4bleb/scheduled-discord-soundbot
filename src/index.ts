@@ -2,7 +2,7 @@ import { ActivityType, Client, Events, GatewayIntentBits } from "discord.js";
 
 import { env } from "./env";
 import { config } from "./config";
-import { findFirstTalkableChannel } from "./utils";
+import { findFirstTalkableChannel } from "./utils/discord-utils";
 import { cancelSchedule, scheduleSound } from "./scheduling";
 import { deployGlobalCommands } from "./deploy-commands";
 import { commands } from "./commands";
@@ -36,7 +36,7 @@ async function setupGuilds() {
   for (const [_, guild] of client.guilds.cache) {
     console.log(`setting up for guild ${guild.id}, "${guild.name}"`);
     const channel = findFirstTalkableChannel(guild)!;
-    console.log(`  channel "${channel.name}"`);
+    console.log(`\tchannel "${channel.name}"`);
 
     for (const sound of config.sounds) {
       scheduleSound(guild, channel, sound);

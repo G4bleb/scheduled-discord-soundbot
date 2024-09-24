@@ -22,13 +22,13 @@ TODO:
 - Per-guild sounds, schedules
 - Slash command to set channel selection for guild
 - Slash command to set timezone for guild ()
-- Slash command to of sounds and set crontab (should be doable with a slash command SlashCommandBuilder.addAttachmentOption)
+- Slash command to add sounds and set crontab (should be doable with a slash command SlashCommandBuilder.addAttachmentOption)
+  - Name should be [A-z0-9]
   - Also deleting a sound (keep sound name separate from sound filename so it's easier for users)
 - Slash command to with configure crontab of sound
 - Suggested: If sound triggered but no one heard it, wait until someone comes in
 - Rename this repo to something more meaningful (discord-scheduled-soundbot?)
 - Localization
-- Like discord-soundbot's soundutils, save only sounds names and find them in soudns folder when needed
 
 Unsupported:
 
