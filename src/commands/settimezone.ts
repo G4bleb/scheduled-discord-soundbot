@@ -9,7 +9,7 @@ import { setTimezone } from "../config";
 export const data = new SlashCommandBuilder()
   .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
   .setName("settimezone")
-  .setDescription("Set the server's timezone for scheduling")
+  .setDescription("Set the bot's timezone for scheduling")
   .addStringOption((option) =>
     option
       .setName("timezone")
