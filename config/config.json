@@ -1,23 +1,23 @@
 {
   "activityName": "l'heure",
-  "sounds": [
-    {
-      "name": "lheure",
-      "schedule": "00 23 * * *"
+  "sounds": {
+    "lheure": {
+      "1285016806741901445": "00 23 * * *"
     },
-    {
-      "name": "vendredi",
-      "schedule": "00 00 * * 5"
+    "vendredi": {
+      "1285016806741901445": "00 00 * * 5"
     },
-    {
-      "name": "prochainvendredi",
-      "schedule": "00 00 * * 6"
+    "prochainvendredi": {
+      "1285016806741901445": "00 00 * * 6"
     },
-    {
-      "name": "wednesday",
-      "schedule": "00 00 * * 3"
+    "wednesday": {
+      "1285016806741901445": "00 00 * * 3"
     }
-  ],
-  "timezone": "Europe/Paris",
-  "locale": "fr-FR"
+  },
+  "servers": {
+    "1285016806741901445": {
+      "timezone": "Europe/Paris",
+      "locale": "fr-FR"
+    }
+  }
 }
