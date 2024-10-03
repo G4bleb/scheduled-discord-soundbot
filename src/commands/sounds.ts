@@ -16,7 +16,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
 function soundsMessage(guildId: string): string {
   const messageLines: string[] = [];
-  for (const { name, schedule } of config.sounds) {
+  for (const [name, { schedule }] of Object.entries(config.sounds)) {
     messageLines.push(name);
     messageLines.push(`\tSchedule:  ${schedule}`);
     messageLines.push(

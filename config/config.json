@@ -1,23 +1,19 @@
 {
   "activityName": "l'heure",
-  "sounds": [
-    {
-      "name": "lheure",
+  "sounds": {
+    "lheure": {
       "schedule": "00 23 * * *"
     },
-    {
-      "name": "vendredi",
+    "vendredi": {
       "schedule": "00 00 * * 5"
     },
-    {
-      "name": "prochainvendredi",
+    "prochainvendredi": {
       "schedule": "00 00 * * 6"
     },
-    {
-      "name": "wednesday",
+    "wednesday": {
       "schedule": "00 00 * * 3"
     }
-  ],
+  },
   "timezone": "Europe/Paris",
   "locale": "fr-FR"
 }

@@ -38,8 +38,8 @@ export async function setupGuilds() {
     const channel = findFirstTalkableChannel(guild)!;
     console.log(`\tchannel "${channel.name}"`);
 
-    for (const sound of config.sounds) {
-      scheduleSound(guild, channel, sound);
+    for (const [name, { schedule }] of Object.entries(config.sounds)) {
+      scheduleSound(guild, channel, { name, schedule });
     }
   }
 }

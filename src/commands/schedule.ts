@@ -3,9 +3,8 @@ import {
   PermissionFlagsBits,
   SlashCommandBuilder,
 } from "discord.js";
-import { getSound, SoundConfig } from "../config";
+import { config, setSoundSchedule } from "../config";
 import { parseExpression } from "cron-parser";
-import { setSound } from "../config";
 
 export const data = new SlashCommandBuilder()
   .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
@@ -34,24 +33,21 @@ export async function execute(interaction: ChatInputCommandInteraction) {
     if (!schedule) {
       throw new Error("Schedule is undefined");
     }
-    parseExpression(schedule)
+    parseExpression(schedule);
   } catch (error) {
-    return interaction.reply("Error: Schedule is invalid: " + (error as Error).message);
+    return interaction.reply(
+      "Error: Schedule is invalid: " + (error as Error).message
+    );
   }
 
   const soundName = interaction.options.getString("sound");
-  let sound: SoundConfig | undefined = undefined;
-  if (
-    !soundName ||
-    !(sound = getSound(soundName))
-  ) {
+  if (!soundName || !(soundName in config.sounds)) {
     return interaction.reply("Error: Sound name is invalid");
   }
 
-  sound.schedule = schedule;
-  if(!setSound(soundName, sound)){
+  if (!setSoundSchedule(soundName, schedule)) {
     return interaction.reply("Error: Failed to set new schedule");
-  } 
+  }
 
   return interaction.reply(`Sound ${soundName} scheduled to \`${schedule}\``);
 }
