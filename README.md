@@ -17,16 +17,13 @@ Parts of code copied from https://github.com/markokajzer/discord-soundbot -- gre
 
 ## TODO:
 
-- Set config (schedule) at runtime
-  - Should save new config.json
+- Save new config.json on config change
 - Per-guild schedules, timezone, locale
   - Thinking about using https://github.com/TryGhost/node-sqlite3, see below
 - Slash command to set channel selection for guild
-- Slash command to set timezone for guild ()
 - Slash command to add sounds and set crontab (should be doable with a slash command SlashCommandBuilder.addAttachmentOption)
   - Name should be [A-z0-9]
-  - Also deleting a sound (keep sound name separate from sound filename so it's easier for users)
-- Slash command to with configure crontab of sound
+  - Also deleting a sound (keep sound name separate from sound filename extension so it's easier for users)
 - Suggested: If sound triggered but no one heard it, wait until someone comes in
 - Rename this repo to something more meaningful (discord-scheduled-soundbot?)
 - Localization
