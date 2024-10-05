@@ -12,6 +12,9 @@
     },
     "wednesday": {
       "schedule": "00 00 * * 3"
+    },
+    "mardi": {
+      "schedule": "00 00 * * 2"
     }
   },
   "timezone": "Europe/Paris",
