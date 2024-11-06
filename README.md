@@ -1,19 +1,18 @@
-# sound-playing-discord-bot
+# scheduled-sounds-discord-bot
 
 work in progress, please don't try using this for now
 
 Discord bot to play scheduled sounds
+If you want to play sounds whenever you type a commmand, check out https://github.com/markokajzer/discord-soundbot -- It's great
 
-you need ffmpeg to play sounds
+## Installation
 
 ```
 sudo apt update
 sudo apt install -y ffmpeg
-npm install
-npm run dev
+npm run build
+npm run start
 ```
-
-Parts of code copied from https://github.com/markokajzer/discord-soundbot -- great bot, check it out (it's probably the one you are looking for)
 
 ## TODO:
 
