@@ -1,4 +1,4 @@
-# scheduled-sounds-discord-bot
+# scheduled-discord-soundbot
 
 work in progress, please don't try using this for now
 
