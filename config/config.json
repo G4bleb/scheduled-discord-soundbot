@@ -18,6 +18,9 @@
     },
     "when_it_sunday": {
       "schedule": "00 00 * * 0"
+    },
+    "minuit_13": {
+      "schedule": "13 00 * * *"
     }
   },
   "timezone": "Europe/Paris",
