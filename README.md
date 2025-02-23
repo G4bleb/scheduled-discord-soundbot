@@ -3,7 +3,7 @@
 work in progress, please don't try using this for now
 
 Discord bot to play scheduled sounds
-If you want to play sounds whenever you type a commmand, check out https://github.com/markokajzer/discord-soundbot -- It's great
+If you want to play sounds whenever you type a command, check out https://github.com/markokajzer/discord-soundbot -- It's great
 
 ## Installation
 
