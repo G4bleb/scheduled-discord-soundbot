@@ -3,7 +3,7 @@ import {
   PermissionFlagsBits,
   SlashCommandBuilder,
 } from "discord.js";
-import { config, setSoundSchedule } from "../config";
+import { sounds, setSoundSchedule } from "../config";
 import { parseExpression } from "cron-parser";
 
 export const data = new SlashCommandBuilder()
@@ -41,7 +41,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   }
 
   const soundName = interaction.options.getString("sound");
-  if (!soundName || !(soundName in config.sounds)) {
+  if (!soundName || !(soundName in sounds)) {
     return interaction.reply("Error: Sound name is invalid");
   }
 
