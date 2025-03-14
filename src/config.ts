@@ -24,15 +24,20 @@ export function setTimezone(newTimezone: string) {
   setupGuilds();
 }
 
-export function getSoundSchedule(soundName: string): { schedule: string } | undefined  {
+export function getSoundSchedule(
+  soundName: string
+): { schedule: string } | undefined {
   return config.sounds[soundName];
 }
 
-export function setSoundSchedule(soundName: string, newSchedule: string): boolean {
+export function setSoundSchedule(
+  soundName: string,
+  newSchedule: string
+): boolean {
   if (!(soundName in config.sounds)) {
     return false;
   }
-  config.sounds[soundName] = {schedule: newSchedule};
+  config.sounds[soundName] = { schedule: newSchedule };
   setupGuilds();
   return true;
 }
