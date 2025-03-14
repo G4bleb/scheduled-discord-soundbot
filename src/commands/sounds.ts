@@ -1,6 +1,6 @@
 import { ChatInputCommandInteraction, SlashCommandBuilder } from "discord.js";
 import { getNextPlay } from "../scheduling";
-import { config } from "../config";
+import { config, sounds } from "../config";
 
 export const data = new SlashCommandBuilder()
   .setName("sounds")
@@ -16,7 +16,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
 function soundsMessage(guildId: string): string {
   const messageLines: string[] = [];
-  for (const [name, { schedule }] of Object.entries(config.sounds)) {
+  for (const [name, { schedule }] of Object.entries(sounds)) {
     messageLines.push(name);
     messageLines.push(`\tSchedule:  ${schedule}`);
     messageLines.push(
