@@ -1,28 +1,5 @@
 {
   "activityName": "l'heure",
-  "sounds": {
-    "lheure": {
-      "schedule": "00 23 * * *"
-    },
-    "vendredi": {
-      "schedule": "00 00 * * 5"
-    },
-    "prochainvendredi": {
-      "schedule": "00 00 * * 6"
-    },
-    "wednesday": {
-      "schedule": "00 00 * * 3"
-    },
-    "mardi": {
-      "schedule": "00 00 * * 2"
-    },
-    "when_it_sunday": {
-      "schedule": "00 00 * * 0"
-    },
-    "minuit_13": {
-      "schedule": "13 00 * * *"
-    }
-  },
   "timezone": "Europe/Paris",
   "locale": "fr-FR"
 }

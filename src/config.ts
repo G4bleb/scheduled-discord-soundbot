@@ -8,9 +8,12 @@ export interface SoundConfig {
 
 export interface Config {
   activityName: string;
-  sounds: { [soundName: string]: { schedule: string } };
   timezone: string;
   locale: string;
+}
+
+interface Sounds {
+  [soundName: string]: { schedule: string };
 }
 
 export const config = require(pathJoin(
@@ -18,6 +21,12 @@ export const config = require(pathJoin(
   "config",
   "config.json"
 )) as Config;
+
+export const sounds = require(pathJoin(
+  process.cwd(),
+  "config",
+  "sounds.json"
+)) as Sounds;
 
 export function setTimezone(newTimezone: string) {
   config.timezone = newTimezone;
@@ -27,17 +36,17 @@ export function setTimezone(newTimezone: string) {
 export function getSoundSchedule(
   soundName: string
 ): { schedule: string } | undefined {
-  return config.sounds[soundName];
+  return sounds[soundName];
 }
 
 export function setSoundSchedule(
   soundName: string,
   newSchedule: string
 ): boolean {
-  if (!(soundName in config.sounds)) {
+  if (!(soundName in sounds)) {
     return false;
   }
-  config.sounds[soundName] = { schedule: newSchedule };
+  sounds[soundName] = { schedule: newSchedule };
   setupGuilds();
   return true;
 }
