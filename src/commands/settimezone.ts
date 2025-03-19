@@ -19,7 +19,7 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: ChatInputCommandInteraction) {
   if (!interaction.guildId) {
-    console.error("Error: Missing guildId in settimezone command");
+    console.error("Error: Missing guildId in command interaction");
     return;
   }
   const tz = interaction.options.getString("timezone");

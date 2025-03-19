@@ -1,17 +1,10 @@
 import { join as pathJoin } from "node:path";
 import { setupGuilds } from ".";
 import fspromises from "node:fs/promises";
+import { soundMap } from "./utils/sounds-utils";
 
-const CONFIG_JSON_PATH = pathJoin(
-  process.cwd(),
-  "config",
-  "config.json"
-);
-const SOUNDS_JSON_PATH = pathJoin(
-  process.cwd(),
-  "config",
-  "sounds.json"
-);
+const CONFIG_JSON_PATH = pathJoin(process.cwd(), "config", "config.json");
+const SOUNDS_JSON_PATH = pathJoin(process.cwd(), "config", "sounds.json");
 
 export interface SoundConfig {
   name: string;
@@ -22,6 +15,7 @@ export interface Config {
   activityName: string;
   timezone: string;
   locale: string;
+  maximumFileSize: number;
 }
 
 interface Sounds {
@@ -47,7 +41,7 @@ export function setSoundSchedule(
   soundName: string,
   newSchedule: string
 ): boolean {
-  if (!(soundName in sounds)) {
+  if (!(soundName in soundMap)) {
     return false;
   }
   sounds[soundName] = { schedule: newSchedule };
@@ -56,14 +50,20 @@ export function setSoundSchedule(
   return true;
 }
 
-async function saveSoundsJson(){
-  console.log(`Saving sounds.json...`);
-  await fspromises.writeFile(SOUNDS_JSON_PATH, JSON.stringify(sounds, null, 2));
-  console.log(`Saved sounds.json`)
+export function soundRemoved(soundName: string) {
+  delete sounds[soundName];
+  saveSoundsJson();
+  setupGuilds();
 }
 
-async function saveConfigJson(){
+async function saveSoundsJson() {
+  console.log(`Saving sounds.json...`);
+  await fspromises.writeFile(SOUNDS_JSON_PATH, JSON.stringify(sounds, null, 2));
+  console.log(`Saved sounds.json`);
+}
+
+async function saveConfigJson() {
   console.log(`Saving config.json`);
   await fspromises.writeFile(CONFIG_JSON_PATH, JSON.stringify(config, null, 2));
-  console.log(`Saved config.json`)
+  console.log(`Saved config.json`);
 }

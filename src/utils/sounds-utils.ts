@@ -1,8 +1,8 @@
 import fspromises from "node:fs/promises";
 import fs from "node:fs";
-import path from "node:path";
+import { join as pathJoin } from "node:path";
 
-export const SOUNDS_DIRECTORY = "sounds" + path.sep;
+export const SOUNDS_DIRECTORY = pathJoin(process.cwd(), "sounds");
 export var soundMap: { [name: string]: string } = {};
 
 export const soundsDirWatcher = fs.watch(SOUNDS_DIRECTORY, () => {
@@ -28,5 +28,5 @@ export function getSoundPath(soundName: string) {
   if (!(soundName in soundMap)) {
     throw new Error(`Sound "${soundName}" not in soundMap`);
   }
-  return path.join(SOUNDS_DIRECTORY, soundMap[soundName]);
+  return pathJoin(SOUNDS_DIRECTORY, soundMap[soundName]);
 }

@@ -16,16 +16,15 @@ npm run start
 
 ## TODO:
 
-- Save new config.json on config change
-- Per-guild schedules, timezone, locale
+- Consider per-guild schedules , timezone, locale
   - Thinking about using https://github.com/TryGhost/node-sqlite3, see below
-- Slash command to set channel selection for guild
-- Slash command to add sounds and set crontab (should be doable with a slash command SlashCommandBuilder.addAttachmentOption)
-  - Name should be [A-z0-9]
-  - Also deleting a sound (keep sound name separate from sound filename extension so it's easier for users)
-- Suggested: If sound triggered but no one heard it, wait until someone comes in
-- Rename this repo to something more meaningful (discord-scheduled-soundbot?)
+- Slash command to set channel selection for guild (implies a per-guild config)
+
+- Rename this repo to something better
 - Localization
+- Tests.
+
+- Suggested: If sound triggered but no one heard it, wait until someone comes in
 
 Unsupported:
 

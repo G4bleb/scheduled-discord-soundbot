@@ -1,5 +1,6 @@
 {
   "activityName": "l'heure",
   "timezone": "Europe/Paris",
-  "locale": "fr-FR"
+  "locale": "fr-FR",
+  "maximumFileSize": 1000000
 }

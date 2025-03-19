@@ -8,7 +8,7 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: ChatInputCommandInteraction) {
   if (!interaction.guildId) {
-    console.error("missing guildId in sounds command");
+    console.error("Error: Missing guildId in command interaction");
     return;
   }
   return interaction.reply(soundsMessage(interaction.guildId));
