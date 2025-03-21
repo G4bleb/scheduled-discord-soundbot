@@ -1,7 +1,7 @@
 {
   "name": "sound-playing-discord-bot",
   "version": "1.0.0",
-  "description": "work in progress, please don't try using this for now",
+  "description": "Discord bot to play sounds based on a crontab schedule",
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/index.ts",

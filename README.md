@@ -1,8 +1,8 @@
 # scheduled-discord-soundbot
 
-work in progress, please don't try using this for now
+Discord bot to play sounds based on a crontab schedule 
 
-Discord bot to play scheduled sounds
+This project works, but it's unpolished.
 If you want to play sounds whenever you type a command, check out https://github.com/markokajzer/discord-soundbot -- It's great
 
 ## Installation
